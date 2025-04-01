@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Data</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>User Data</h1>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Sample JSON data
+    const jsonData = {
+      "users": [
+        {
+          "id": 1,
+          "name": "John Doe",
+          "age": 30,
+          "email": "johndoe@example.com"
+        },
+        {
+          "id": 2,
+          "name": "Jane Smith",
+          "age": 28,
+          "email": "janesmith@example.com"
+        }
+      ]
+    };
+
+    // Function to populate the table with JSON data
+    function populateTable(data) {
+      const tableBody = document.querySelector("#data-table tbody");
+      data.users.forEach(user => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${user.id}</td>
+          <td>${user.name}</td>
+          <td>${user.age}</td>
+          <td>${user.email}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Call the function to populate the table
+    populateTable(jsonData);
+  </script>
+</body>
+</html>
